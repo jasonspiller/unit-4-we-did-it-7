@@ -27,7 +27,7 @@ SECRET_KEY = 'p3^ofln7s+yasgq3@d$wp2@2wix$2vqi4c32+zcq&^x$t^asi%'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'hidden-dawn-91714.herokuapp.com',
+    'wedidit7.herokuapp.com',
     'localhost'
 ]
 
