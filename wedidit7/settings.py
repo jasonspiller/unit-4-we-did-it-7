@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'hidden-dawn-91714.herokuapp.com',
-    'localhost:8000',
+    'localhost'
 ]
 
 
