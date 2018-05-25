@@ -1,1 +1,1 @@
-web: gunicorn wedidit7.wsgi
+web: gunicorn wedidit7.wsgi --log-file -
