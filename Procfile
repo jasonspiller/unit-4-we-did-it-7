@@ -1,1 +1,1 @@
-web: gunicorn gettingstarted.wsgi --log-file []
+web: gunicorn wedidit7.wsgi --log-file
