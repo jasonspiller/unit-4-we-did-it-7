@@ -1,8 +1,6 @@
 from django.db import models
 
 # Create your models here.
-first_name, last_name, phone, email, username, password, motto
-
 class User(models.Model):
 	first_name = models.CharField(max_length=100)
 	last_name = models.CharField(max_length=100)
@@ -11,3 +9,6 @@ class User(models.Model):
 	username = models.CharField(max_length=100)
 	password = models.CharField(max_length=100)
 	motto = models.CharField(max_length=1000)
+
+def __str__(self):
+	return self.name
