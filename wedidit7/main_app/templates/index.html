@@ -2,17 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>WeDidIt7</title>
+	<title>Sign Up</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
 <body>
-	<header>
-		<h1>Hello World!</h1>
-	</header>
 	<section>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit reiciendis quas quibusdam maxime quaerat nostrum, sequi velit neque necessitatibus molestias omnis ratione odio adipisci officia, accusantium corrupti et, nisi consequatur!</p>
-	</section>
-	<section>
-		<h3>Meet the team!</h3>
+	<h3>Meet the team!</h3>
 		{% for user in user %}
 				<p>First Name: {{ user.first_name }}</p>
 				<p>Last Name: {{ user.last_name }}</p>
@@ -24,5 +19,39 @@
 			<hr>
 		{% endfor %}
 	</section>
+	<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputFullName">First Name</label>
+      <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputFullName">Last Name</label>
+      <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputUsername">Username</label>
+    <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <label for="inputEmail">Email</label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+  </div>
+    <div class="form-group">
+    <label for="inputPassword">Password</label>
+    <input type="text" class="form-control" id="inputPassword" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="inputPhone">Phone</label>
+    <input type="phone" class="form-control" id="inputEmail" placeholder="000-000-0000">
+  </div>
+    <div class="form-group">
+    <label for="inputMotto">Motto</label>
+    <textarea class="form-control" id="inputMotto" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign up</button>
+</form>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </body>
 </html>
