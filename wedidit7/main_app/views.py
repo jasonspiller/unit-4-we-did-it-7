@@ -3,8 +3,8 @@ from .models import User
 
 # Create your views here.
 
-def index(request):
+def sign_up(request):
 	user = User.objects.all()
-	return render(request, 'index.html', {'user': user})
+	return render(request, 'signup.html', {'user': user})
 
 
