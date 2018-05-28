@@ -81,7 +81,11 @@ WSGI_APPLICATION = 'wedidit7.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+<<<<<<< HEAD:wedidit7/wedidit7/settings.py
+        'NAME': ('users'),
+=======
         'NAME': ('shares'),
+>>>>>>> master:wedidit7/settings.py
     }
 }
 
@@ -103,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
