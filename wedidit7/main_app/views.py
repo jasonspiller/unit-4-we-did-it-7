@@ -45,23 +45,23 @@ def signup(request):
 	return HttpResponseRedirect('/')
 
 def signin(request):
-    if request.method == 'POST':
-        form = SignInForm(request.POST)
-        if form.is_valid():
-            u = form.cleaned_data['username']
-            p = form.cleaned_data['password']
-            user = authenticate(username = u, password = p)
-            if user is not None:
-                if user. is_active:
-                    login(request, user)
-                    return HttpResponseRedirect('/')
-                else:
-                    print("The account has been disabled.")
-            else:
-                print("The username and/or password is incorrect.")
-    else:
-        form = SignInForm()
-        return render(request, 'signin.html', {'form': form})
+	if request.method == 'POST':
+		form = SignInForm(request.POST)
+		if form.is_valid():
+			u = form.cleaned_data['username']
+			p = form.cleaned_data['password']
+			user = authenticate(username = u, password = p)
+			if user is not None:
+				if user. is_active:
+					login(request, user)
+					return HttpResponseRedirect('/')
+				else:
+					print("The account has been disabled.")
+			else:
+				print("The username and/or password is incorrect.")
+	else:
+		form = SignInForm()
+		return render(request, 'signin.html', {'form': form})
 
 
 
