@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'wedidit7.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': ('users'),
+        'NAME': ('wedidit7'),
     }
 }
 
