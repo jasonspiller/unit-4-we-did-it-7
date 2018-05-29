@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 # from django.contrib.auth import login, authenticate
 # from django.contrib.auth.decorators import login_required
-from .models import User
+from .models import User, Share
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import SignUpForm
 
