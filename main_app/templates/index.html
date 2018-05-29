@@ -1,20 +1,46 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
-	<title>Sign Up</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<title>WeDidIt7</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
-  <h1>This is the homepage</h1>
-  <section>
-	<h1>Sign Up</h1>
-		<form action="post_url/" method="post">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Submit" />
-		</form>
-  </section>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<div class="container">
+	<div class= "navbar-wrapper">
+		<div class="navbar">
+			<button type="button" class="navbarbutton" placeholder="button" ></button>
+			<button type="button" class="navbarbutton" placeholder="button" ></button>
+			<button type="button" class="navbarbutton" placeholder="button" ></button>
+		</div>
+	</div>
+	<header>
+		<h1>Hello World!</h1>
+	</header>
+	<section>
+		<h2>Welcome to our show, welcome to our show, welcome Squidward, welcome Squidward, welcome Squidward!</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit reiciendis quas quibusdam maxime quaerat nostrum, sequi velit neque necessitatibus molestias omnis ratione odio adipisci officia, accusantium corrupti et, nisi consequatur!</p>
+	</section>
+	<section>
+		<h3>Meet the team!</h3>
+		{% for team in members %}
+				<p>Name: {{ team.name }}</p>
+	    		<p>Description: {{ team.description }}</p>
+			{% if team.age > 0 %}
+	    		<p>Age: {{ team.age }}</p>
+			{% else %}
+	    		<p>Age: Kitten</p>
+			{% endif %}
+			<hr>
+		{% endfor %}
+	</section>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="{% static './app.js' %}"></script>
 </body>
 </html>
