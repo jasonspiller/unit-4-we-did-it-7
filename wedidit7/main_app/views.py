@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 # from django.contrib.auth.decorators import login_required
 from .models import User
 from django.http import HttpResponse, HttpResponseRedirect
-from .forms import SignUpForm
+from .forms import SignUpForm, SignInForm
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -42,6 +43,26 @@ def signup(request):
 		user.user = request.user
 		user.save()
 	return HttpResponseRedirect('/')
+
+def signin(request):
+    if request.method == 'POST':
+        form = SignInForm(request.POST)
+        if form.is_valid():
+            u = form.cleaned_data['username']
+            p = form.cleaned_data['password']
+            user = authenticate(username = u, password = p)
+            if user is not None:
+                if user. is_active:
+                    login(request, user)
+                    return HttpResponseRedirect('/')
+                else:
+                    print("The account has been disabled.")
+            else:
+                print("The username and/or password is incorrect.")
+    else:
+        form = SignInForm()
+        return render(request, 'signin.html', {'form': form})
+
 
 
 

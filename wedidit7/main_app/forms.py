@@ -9,3 +9,7 @@ class SignUpForm(forms.Form):
 	phone = forms.IntegerField(required=True)
 	email = forms.CharField(max_length=100, required=True)
 	motto = forms.CharField(max_length=1000, required=False)
+
+class SignInForm(forms.Form):
+	username = forms.CharField(label="Username", max_length=100)
+	password = forms.CharField(widget=forms.PasswordInput())
