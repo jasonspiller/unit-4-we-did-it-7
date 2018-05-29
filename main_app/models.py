@@ -10,7 +10,6 @@ class User(models.Model):
 	username = models.CharField(max_length=100)
 	password = models.CharField(max_length=100)
 	motto = models.CharField(max_length=1000)
-	user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 def __str__(self):
