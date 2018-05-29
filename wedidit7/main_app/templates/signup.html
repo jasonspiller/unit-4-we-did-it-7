@@ -7,49 +7,9 @@
 </head>
 <body>
   <h1>Sign Up</h1>
-	<form method="POST" action=""> {% csrf_token %}
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="{{ form.firstname.id_for_label }}">First Name</label>
-      <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" value="{{ first_name }}">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="{{ form.lastname.id_for_label }}">Last Name</label>
-      <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" value="{{ last_name }}">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="{{ form.username.id_for_label }}">Username</label>
-    <input type="text" class="form-control" id="inputUsername" placeholder="Username" value="{{ username }}">
-  </div>
-  <div class="form-group">
-    <label for="{{ form.email.id_for_label }}">Email</label>
-    <input type="email" class="form-control" id="inputEmail" placeholder="Email" value="{{ email }}">
-  </div>
-    <div class="form-group">
-    <label for="{{ form.password.id_for_label }}">Password</label>
-    <input type="text" class="form-control" id="inputPassword" placeholder="Password" value="{{ password }}">
-  </div>
-  <div class="form-group">
-    <label for="{{ form.phone.id_for_label }}">Phone</label>
-    <input type="phone" class="form-control" id="inputEmail" placeholder="000-000-0000" value="{{ phone }}">
-  </div>
-    <div class="form-group">
-    <label for="{{ form.motto.id_for_label }}">Motto</label>
-    <textarea class="form-control" id="inputMotto" rows="3" value="{{ motto }}"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary" value="OK">Sign up</button>
-  <section>
-    <h3>Meet the team!</h3>
-+   {% for user in users %}
-+       <p>First Name: {{ user.first_name }}</p>
-+       <p>Last Name: {{ user.last_name }}</p>
-+         <p>Username: {{ user.username }}</p>
-+         <p>Phone: {{ user.phone }}</p>
-+         <p>Email: {{ user.email }}</p>
-+         <p>Phone: {{ user.phone }}</p>
-+         <p>Motto: {{ user.motto }}</p>
-      <hr>
-    {% endfor %}
-  </section>
+  <form action="post_url/" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit" />
+  </form>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
