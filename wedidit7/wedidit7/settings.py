@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,10 @@ SECRET_KEY = 'p3^ofln7s+yasgq3@d$wp2@2wix$2vqi4c32+zcq&^x$t^asi%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'wedidit7.herokuapp.com',
+    'localhost'
+]
 
 
 # Application definition
