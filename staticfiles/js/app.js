@@ -17,7 +17,6 @@ $(function() {
           if(typeof imgID !== 'undefined') {
               $svg = $svg.attr('id', imgID);
           }
-
           // Add replaced image's classes to the new SVG
           if(typeof imgClass !== 'undefined') {
               $svg = $svg.attr('class', imgClass+' replaced-svg');
