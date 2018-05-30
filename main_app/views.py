@@ -27,6 +27,9 @@ def index(request):
 def storylineview(request):
     return render(request, 'storyline.html',{})
 
+def profile(request):
+	return render(request, 'profile.html',{})
+
 # @login_required
 # def home(request):
 # 	return render(request, 'index.html')
