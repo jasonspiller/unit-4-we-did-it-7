@@ -22,13 +22,16 @@ from .forms import SignUpForm
 def index(request):
 	user = User.objects.all()
 	form = SignUpForm()
-	return render(request, 'signup.html', {'user': user, 'form': form})
+	return render(request, 'index.html')
 
 def storylineview(request):
     return render(request, 'storyline.html',{})
 
 def profile(request):
 	return render(request, 'profile.html',{})
+
+def post(request):
+	return render(request, 'post.html',{})
 
 # @login_required
 # def home(request):
