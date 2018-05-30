@@ -5,6 +5,8 @@ from .models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import SignUpForm
 
+
+
 # Create your views here.
 
 # def index(request):
@@ -15,10 +17,15 @@ from .forms import SignUpForm
 # 	form = SignUpForm()
 # 	return render(request, 'signup.html', {'user': user, 'form': form})
 
+
+
 def index(request):
 	user = User.objects.all()
 	form = SignUpForm()
 	return render(request, 'signup.html', {'user': user, 'form': form})
+
+def storylineview(request):
+    return render(request, 'storyline.html',{})
 
 # @login_required
 # def home(request):
