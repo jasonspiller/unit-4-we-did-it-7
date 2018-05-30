@@ -33,6 +33,9 @@ def profile(request):
 def post(request):
 	return render(request, 'post.html',{})
 
+def signin(request):
+	return render(request, 'signin.html',{})
+
 # @login_required
 # def home(request):
 # 	return render(request, 'index.html')
