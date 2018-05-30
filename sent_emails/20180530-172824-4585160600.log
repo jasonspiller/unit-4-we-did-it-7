@@ -1,0 +1,26 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on localhost:8000
+From: webmaster@localhost
+To: krosecozadd@gmail.com
+Date: Wed, 30 May 2018 17:28:24 -0000
+Message-ID: 
+ <152770130492.50118.14048252721527454661@Katrinas-MacBook-Pro.local>
+
+
+You're receiving this email because you requested a password reset for your user account at localhost:8000.
+
+Please go to the following page and choose a new password:
+
+http://localhost:8000/accounts/reset/MQ/4wm-53defb4c0d9e2374b020/
+
+Your username, in case you've forgotten: katcozadd
+
+Thanks for using our site!
+
+The localhost:8000 team
+
+
+
+-------------------------------------------------------------------------------
