@@ -151,7 +151,7 @@ sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
 from_email = Email("test@example.com")
 to_email = Email("krosecozadd@gmail.com")
 subject = "Sending with SendGrid is Fun"
-content = Content("text/plain", "and easy to do anywhere, even with Python")
+content = Content("text/plain", "please freaking work I don't want to cry anymore")
 mail = Mail(from_email, subject, to_email, content)
 response = sg.client.mail.send.post(request_body=mail.get())
 print(response.status_code)
