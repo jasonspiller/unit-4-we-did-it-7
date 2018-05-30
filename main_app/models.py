@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
     """Custom User Model."""
+
     # First/last name is not a global-friendly pattern
     motto = models.CharField(blank=True, max_length=255)
 
