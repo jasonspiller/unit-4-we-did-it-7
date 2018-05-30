@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-# import django_heroku
+import dj_database_url
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+
+
 MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -52,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'wedidit7.urls'
@@ -59,7 +64,7 @@ ROOT_URLCONF = 'wedidit7.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'main_app/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,10 +86,12 @@ WSGI_APPLICATION = 'wedidit7.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': ('users'),
+        'NAME': ('wedidit7'),
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -118,7 +125,35 @@ USE_L10N = True
 USE_TZ = True
 
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+# built-in redirect for login
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+
+# using SendGrid's Python Library
+# https://github.com/sendgrid/sendgrid-python
+import sendgrid
+from sendgrid.helpers.mail import *
+
+sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
+from_email = Email("test@example.com")
+to_email = Email("krosecozadd@gmail.com")
+subject = "Sending with SendGrid is Fun"
+content = Content("text/plain", "please freaking work I don't want to cry anymore")
+mail = Mail(from_email, subject, to_email, content)
+response = sg.client.mail.send.post(request_body=mail.get())
+print(response.status_code)
+print(response.body)
+print(response.headers)

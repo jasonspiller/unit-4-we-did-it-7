@@ -1,0 +1,101 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,700|Source+Code+Pro:300');
+
+body {
+  background: #ecf0f1;
+  color: #2c3e4f;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+body.home {
+  background: url("/static/img/bg.jpg") fixed no-repeat center center;
+  background-size: cover;
+}
+
+body {
+  background: #fff url("/img/concrete-seamless.png") top left repeat scroll;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+header {
+  margin-top: 2rem;
+}
+
+main {
+  margin-top: 20rem;
+}
+
+
+a {
+  color: #fc2a3a;
+}
+
+a:hover, a:visited, a:active {
+  color: #fc2a3a;
+  border-bottom: 1px solid #fc2a3a;
+}
+
+h1 img {
+  height: 100px;
+  color: #ecf0f1;
+}
+
+a.navbar-brand:hover, a.navbar-brand:visited, a.navbar-brand:active {
+  border-bottom: none;
+}
+
+h2 {
+  font-family: "Source Code Pro", monospace;
+  color: #72bff6;
+}
+
+.dark-semi-transparent {
+  background: rgba(33, 37, 41, 0.5);
+}
+
+.logo {
+  font-size: 2.5rem;
+}
+
+.logo .fa-search {
+  margin: 0 -5px -3px 2px;
+  width: .9em;
+}
+
+.btn-primary {
+  background: #fc2a3a;
+  border-color: #ce001c;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary:active,
+.btn.btn-primary.active {
+  color: #ffffff;
+  background-color: #ce001c;
+  border-color: #fc2a3a;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.logo {
+	    font-size: 3.5rem;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
