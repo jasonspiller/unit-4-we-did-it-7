@@ -23,7 +23,7 @@ class User(models.Model):
 class Share(models.Model):
     """Share model."""
 
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     story = models.TextField()
     post_date = models.DateTimeField()
     media = models.TextField()

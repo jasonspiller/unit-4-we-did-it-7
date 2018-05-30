@@ -1,10 +1,20 @@
 """Views."""
 from django.shortcuts import render, redirect
-# from django.contrib.auth import login, authenticate
-# from django.contrib.auth.decorators import login_required
-from .models import User, Share
+from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from .models import User, Share
+from django.views import generic
 from .forms import SignUpForm, ShareForm
+
+
+class SignUp(generic.CreateView):
+    """Sign Up Form."""
+
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'
 
 
 def index(request):
@@ -12,10 +22,6 @@ def index(request):
     user = User.objects.all()
     form = SignUpForm()
     return render(request, 'signup.html', {'user': user, 'form': form})
-
-# @login_required
-# def home(request):
-# 	return render(request, 'index.html')
 
 
 def show(request, user_id):
@@ -41,12 +47,12 @@ def signup(request):
     return HttpResponseRedirect('/')
 
 
-def share(request):
+def post_share(request):
     """Share Form."""
     form = ShareForm(request.POST)
     if form.is_valid():
         share = Share(
-            user_id=form.cleaned_data['share_date'],
+            #user=user,
             story=form.cleaned_data['story'],
             post_date=form.cleaned_data['post_date'],
             media=form.cleaned_data['media'],

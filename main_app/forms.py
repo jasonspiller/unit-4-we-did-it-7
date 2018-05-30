@@ -18,8 +18,8 @@ class SignUpForm(forms.Form):
 class ShareForm(forms.Form):
     """Share Form."""
 
-    user_id = forms.ForeignKey(User)
-    story = forms.TextField(required=True)
-    post_date = forms.DateTimeField(required=True)
-    media = forms.TextField(required=True)
-    share_date = forms.DateTimeField(required=True)
+    #user = forms.ForeignKey(User)
+    # story = forms.TextField(required=True)
+    # post_date = forms.DateTimeField(required=True)
+    # media = forms.TextField(required=True)
+    # share_date = forms.DateTimeField(required=True)
