@@ -1,4 +1,11 @@
-.navbarbutton{
-	height: 20px;
-	width: 100px;
+.navbar-nav{
+	float: right;
+}
+
+h1{
+	text-align: center;
+}
+
+button{
+	padding- right: 5px;
 }

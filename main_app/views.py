@@ -8,13 +8,29 @@ from .models import User, Share
 from django.views import generic
 
 
-
 class SignUp(generic.CreateView):
     """Sign Up Form."""
-
-    form_class = UserCreationForm
+	form_class = UserCreationForm
     success_url = reverse_lazy('login')
-    template_name = 'signup.html'
+    template_name = 'signup.html'	
+
+
+def index(request):
+	user = User.objects.all()
+	form = SignUpForm()
+	return render(request, 'index.html')
+
+def storylineview(request):
+    return render(request, 'storyline.html',{})
+
+def profile(request):
+	return render(request, 'profile.html',{})
+
+def post(request):
+	return render(request, 'post.html',{})
+
+def signin(request):
+	return render(request, 'signin.html',{})
 
 
 # def post_share(request):
