@@ -144,7 +144,7 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # using SendGrid's Python Library
 # https://github.com/sendgrid/sendgrid-python
-import sendgrid 
+import sendgrid
 from sendgrid.helpers.mail import *
 
 sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
