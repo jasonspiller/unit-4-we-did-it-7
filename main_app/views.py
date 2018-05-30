@@ -6,6 +6,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from .models import User, Share
 from django.views import generic
+<<<<<<< HEAD
+# from .forms import SignUpForm, ShareForm
+=======
+>>>>>>> fb4c59cba5c37e8036ae26be74607d4767d36308
 
 
 class SignUp(generic.CreateView):

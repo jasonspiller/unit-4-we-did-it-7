@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+
+
 MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -137,5 +140,12 @@ STATICFILES_DIRS = (
 # built-in redirect for login
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'EMAIL_USER'
+EMAIL_HOST_PASSWORD = 'EMAIL_PASSWORD'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+from django.core.mail import send_mail
+send_mail('Password reset', 'Hey reset your email yo!', 'from@example.com', ['krosecozadd@gmail.com'], fail_silently=False)
