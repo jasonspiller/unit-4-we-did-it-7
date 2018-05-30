@@ -8,6 +8,7 @@ from .models import User, Share
 from django.views import generic
 
 
+
 class SignUp(generic.CreateView):
     """Sign Up Form."""
 
