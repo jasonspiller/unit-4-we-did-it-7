@@ -4,9 +4,9 @@ from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from .models import User, Share
+#from .models import User, Share
 from django.views import generic
-from .forms import SignUpForm, ShareForm
+#from .forms import SignUpForm, ShareForm
 
 
 class SignUp(generic.CreateView):
