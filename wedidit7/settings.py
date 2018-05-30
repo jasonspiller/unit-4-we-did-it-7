@@ -45,8 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-SENDGRID_API_KEY = os.environ["SENDGRID_API_KEY"]
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
 
 
 MIDDLEWARE = [
@@ -141,12 +140,21 @@ STATICFILES_DIRS = (
 # built-in redirect for login
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
-# EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
-# EMAIL_HOST = 'smtp.sendgrid.net'
-# EMAIL_HOST_USER = 'EMAIL_USER'
-# EMAIL_HOST_PASSWORD = 'EMAIL_PASSWORD'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
 
-# from django.core.mail import send_mail
-# send_mail('Password reset', 'Hey reset your email yo!', 'from@example.com', ['krosecozadd@gmail.com'], fail_silently=False)
+
+# using SendGrid's Python Library
+# https://github.com/sendgrid/sendgrid-python
+import sendgrid
+import os
+from sendgrid.helpers.mail import *
+
+sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
+from_email = Email("test@example.com")
+to_email = Email("krosecozadd@gmail.com")
+subject = "Sending with SendGrid is Fun"
+content = Content("text/plain", "and easy to do anywhere, even with Python")
+mail = Mail(from_email, subject, to_email, content)
+response = sg.client.mail.send.post(request_body=mail.get())
+print(response.status_code)
+print(response.body)
+print(response.headers)
