@@ -9,6 +9,7 @@ django-heroku = "*"
 dj-database-url = "*"
 psycopg2 = "*"
 whitenoise = "*"
+sendgrid = "*"
 
 [requires]
 python_version = "3.6"
