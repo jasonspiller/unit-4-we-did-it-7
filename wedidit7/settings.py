@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+SENDGRID_API_KEY = os.environ["SENDGRID_API_KEY"]
 
 
 MIDDLEWARE = [
@@ -140,12 +141,12 @@ STATICFILES_DIRS = (
 # built-in redirect for login
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
-EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'EMAIL_USER'
-EMAIL_HOST_PASSWORD = 'EMAIL_PASSWORD'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_HOST_USER = 'EMAIL_USER'
+# EMAIL_HOST_PASSWORD = 'EMAIL_PASSWORD'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
 
-from django.core.mail import send_mail
-send_mail('Password reset', 'Hey reset your email yo!', 'from@example.com', ['krosecozadd@gmail.com'], fail_silently=False)
+# from django.core.mail import send_mail
+# send_mail('Password reset', 'Hey reset your email yo!', 'from@example.com', ['krosecozadd@gmail.com'], fail_silently=False)
