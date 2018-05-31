@@ -32,14 +32,23 @@
               <a class="nav-link" href="{% url 'home' %}"><span class="nav-characters">&lt;/</span>Home<span class="nav-characters">&gt;</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'signup' %}"><span class="nav-characters">&lt;/</span>Sign Up<span class="nav-characters">&gt;</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'signin' %}"><span class="nav-characters">&lt;/</span>Sign In<span class="nav-characters">&gt;</span></a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{% url 'storyline' %}"><span class="nav-characters">&lt;/</span>Storyline<span class="nav-characters">&gt;</span></a>
             </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile' %}"><span class="nav-characters">&lt;/</span>Profile<span class="nav-characters">&gt;</span></a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signout' %}"><span class="nav-characters">&lt;/</span>Sign Out<span class="nav-characters">&gt;</span></a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}"><span class="nav-characters">&lt;/</span>Sign Up<span class="nav-characters">&gt;</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}"><span class="nav-characters">&lt;/</span>Sign In<span class="nav-characters">&gt;</span></a>
+              </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
