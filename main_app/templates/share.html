@@ -5,7 +5,7 @@
 {% block content %}
 {% if user.is_authenticated %}
   <h2>Share a Story!</h2>
-    <form action="/share_url/" method="post">
+    <form action={% url "post_share" %} method="post">
       {% csrf_token %}
       {{ form.as_p }}
       <input type="submit" value="Submit" />

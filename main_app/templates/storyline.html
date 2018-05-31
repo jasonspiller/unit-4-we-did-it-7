@@ -7,7 +7,9 @@
 
   <h2>Storyline</h2>
   {% for share in share %}
-  <h3>{{ share }}</h3>
+  <h3>{{ share.user }}</h3>
+  <h3>{{ share.story }}</h3>
+  <h3>{{ share.share_date }}</h3>
   {% endfor %}
 
 {% endif %}

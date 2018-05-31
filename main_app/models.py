@@ -13,4 +13,4 @@ class Share(models.Model):
 
     def __str__(self):
         """Default text output."""
-        return self.name
+        return self.story
