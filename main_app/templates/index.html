@@ -5,11 +5,17 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Sign Out</a></p>
-{% else %}
-  <p>You are not signed in</p>
-  <a href="{% url 'login' %}">Sign In</a>
-{% endif %}
+
+<section class="home">
+
+  <p>
+    This is a page where we all can do posts about all the happy and joyous memories we have had during our time as WDI7. Feel free to post pictures, stories and whatever you want. Lets continue this going and stay in touch after this tremendous journey is done! We love you all.
+  </p>
+
+  <p class="storyline-link">
+    <a href="{% url 'storyline' %}"><span class="nav-characters">&lt;/</span>See Our Story<span class="nav-characters">&gt;</span></a>
+  </p>
+
+</section>
+
 {% endblock %}
