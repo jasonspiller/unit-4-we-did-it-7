@@ -4,8 +4,13 @@
 
 {% block content %}
 
-<h2>Storyline</h2>
+  <h2>Storyline</h2>
+  {% for share in share %}
+  <h4>{{ share.user }}</h4>
+  <p>{{ share.story }}</p>
+  <p>{{ share.share_date }}</p>
+  {% endfor %}
 
-<p>This is the story of us...</p>
+{% endif %}
 
 {% endblock %}
