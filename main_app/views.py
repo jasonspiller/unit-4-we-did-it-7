@@ -49,9 +49,7 @@ def signin(request):
 def post_share(request):
 	"""Share Form."""
 	form = ShareForm(request.POST)
-	print('hahahah')
 	if form.is_valid():
-		# print(formset.errors)
 		share = form.save(commit = False)
 		share.user = request.user
 		share.save()
