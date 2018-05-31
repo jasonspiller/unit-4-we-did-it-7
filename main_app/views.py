@@ -4,8 +4,9 @@ from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-#from .models import User, Share
+# from .models import User, Share
 from django.views import generic
+from django.contrib.auth.decorators import login_required
 
 
 class SignUp(generic.CreateView):
@@ -16,21 +17,18 @@ class SignUp(generic.CreateView):
     template_name = 'signup.html'
 
 
-# def index(request):
-# 	user = User.objects.all()
-# 	form = SignUpForm()
-# 	return render(request, 'index.html')
-
 def storyline(request):
     """Storyline."""
     return render(request, 'storyline.html', {})
 
 
+@login_required
 def profile(request):
     """Profile."""
     return render(request, 'profile.html', {})
 
 
+@login_required
 def share(request):
     """Shareself."""
     return render(request, 'share.html', {})
@@ -39,18 +37,3 @@ def share(request):
 def signin(request):
     """Sign In."""
     return render(request, 'signin.html', {})
-
-
-# def post_share(request):
-#     """Share Form."""
-#     form = ShareForm(request.POST)
-#     if form.is_valid():
-#         share = Share(
-#             #user=user,
-#             story=form.cleaned_data['story'],
-#             post_date=form.cleaned_data['post_date'],
-#             media=form.cleaned_data['media'],
-#             share_date=form.cleaned_data['share_date'])
-#         share.share = request.share
-#         share.save()
-#     return HttpResponseRedirect('/')

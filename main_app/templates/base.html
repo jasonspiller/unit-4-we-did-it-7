@@ -3,14 +3,17 @@
 <html lang="en">
 
   <head>
+
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<meta charset="UTF-8">
   	<title></> We Did It 7 // {% block title %}{% endblock %}</title>
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
   	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
   </head>
 
   <body {% block home %}{% endblock %}>
+
 
   	<header>
 
@@ -35,11 +38,11 @@
               <a class="nav-link" href="{% url 'storyline' %}"><span class="nav-characters">&lt;/</span>Storyline<span class="nav-characters">&gt;</span></a>
             </li>
             {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'profile' %}"><span class="nav-characters">&lt;/</span>Profile<span class="nav-characters">&gt;</span></a>
-            </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'signout' %}"><span class="nav-characters">&lt;/</span>Sign Out<span class="nav-characters">&gt;</span></a>
+                <a class="nav-link" href="{% url 'profile' %}"><span class="nav-characters">&lt;/</span>Profile<span class="nav-characters">&gt;</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}"><span class="nav-characters">&lt;/</span>Sign Out<span class="nav-characters">&gt;</span></a>
               </li>
             {% else %}
               <li class="nav-item">
@@ -76,6 +79,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script src="{% static 'js/app.js' %}"></script>
+
 
   </body>
 

@@ -50,7 +50,7 @@ a.nav-link, footer {
   text-transform: lowercase;
 }
 
-.nav-link:hover, .nav-link:active {
+nav a:hover, nav a:active  {
   border-bottom: none;
   color: #fc2a3a !important;
 }
@@ -86,10 +86,51 @@ a:hover, a:visited, a:active {
   text-decoration: none;
 }
 
-
 h2 {
   font-family: "Source Code Pro", monospace;
   color: #72bff6;
+  margin-bottom: 2rem;
+  letter-spacing: .1rem;
+  text-transform: lowercase;
+}
+
+h2::before {
+  content: "</";
+}
+
+h2::after {
+  content: ">";
+}
+
+section.home {
+  box-sizing: border-box;
+  margin-left: auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ecf0f1;
+}
+
+section.home .storyline-link {
+  text-align: right;
+  margin: 0;
+}
+
+section.home a {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.5rem;
+  text-transform: lowercase;
+}
+
+.profile {
+  margin-bottom: 2rem;
+}
+
+.profile td {
+  padding: .5rem;
+}
+
+.profile .field {
+  font-weight: bold;
 }
 
 .btn-primary {
@@ -120,6 +161,10 @@ h2 {
 
   .navbar img {
     display: inline;
+  }
+
+  section.home {
+    width: 50%;
   }
 }
 
