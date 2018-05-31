@@ -12,18 +12,68 @@ body.home {
   background-size: cover;
 }
 
-body {
-  background: #fff url("/img/concrete-seamless.png") top left repeat scroll;
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+header {
+  margin-top: 1rem;
 }
 
-header {
-  margin-top: 2rem;
+nav, footer {
+  background: rgba(44, 62, 79, 0.8);
+}
+
+.navbar {
+  padding: 0 1rem;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+.navbar img {
+  display: none;
+  width: 10%;
+}
+
+.navbar svg {
+  height: 3rem;
+  fill: #ecf0f1;
+}
+
+a.navbar-brand:hover, a.navbar-brand:visited, a.navbar-brand:active {
+  border-bottom: none;
+}
+
+a.nav-link, footer {
+  white-space: nowrap;
+  color: #ecf0f1;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+
+.nav-link:hover, .nav-link:active {
+  border-bottom: none;
+  color: #fc2a3a !important;
+}
+
+.nav-characters, footer {
+  color: #ecf0f1;
 }
 
 main {
-  margin-top: 8rem;
+  margin-top: 5rem;
+}
+
+footer {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  padding: 0 1rem;
+  text-align: right;
+}
+
+footer img {
+  height: 4rem;
 }
 
 a {
@@ -33,33 +83,13 @@ a {
 a:hover, a:visited, a:active {
   color: #fc2a3a;
   border-bottom: 1px solid #fc2a3a;
+  text-decoration: none;
 }
 
-h1 img {
-  height: 100px;
-  color: #ecf0f1;
-}
-
-a.navbar-brand:hover, a.navbar-brand:visited, a.navbar-brand:active {
-  border-bottom: none;
-}
 
 h2 {
   font-family: "Source Code Pro", monospace;
   color: #72bff6;
-}
-
-.dark-semi-transparent {
-  background: rgba(33, 37, 41, 0.5);
-}
-
-.logo {
-  font-size: 2.5rem;
-}
-
-.logo .fa-search {
-  margin: 0 -5px -3px 2px;
-  width: .9em;
 }
 
 .btn-primary {
@@ -78,19 +108,30 @@ h2 {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-	.logo {
-	    font-size: 3.5rem;
-	}
+
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
+  .navbar svg {
+    height: 3rem;
+  }
+
+  .navbar img {
+    display: inline;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-
+  .navbar svg {
+    height: 5rem;
+  }
+  a.nav-link {
+    font-size: 1.25rem;
+    letter-spacing: .1rem;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

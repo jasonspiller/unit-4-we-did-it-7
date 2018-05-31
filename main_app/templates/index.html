@@ -1,6 +1,6 @@
-
-
 {% extends 'base.html' %}
+
+{% block home %}class="home"{% endblock %}
 
 {% block title %}Home{% endblock %}
 
@@ -13,4 +13,3 @@
   <a href="{% url 'login' %}">Sign In</a>
 {% endif %}
 {% endblock %}
-
