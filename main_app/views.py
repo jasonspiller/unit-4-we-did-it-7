@@ -4,8 +4,8 @@ from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-# from .models import User, Share
 from django.views import generic
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 
@@ -37,3 +37,9 @@ def share(request):
 def signin(request):
     """Sign In."""
     return render(request, 'signin.html', {})
+
+
+def team(request):
+    """Team Page."""
+    users = User.objects.all()
+    return render(request, 'team.html', {'users': users})
