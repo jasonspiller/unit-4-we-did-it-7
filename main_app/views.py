@@ -3,9 +3,11 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-#from .models import User, Share
+from .models import Share
 from django.views import generic
+from .forms import ShareForm 
 
 
 class SignUp(generic.CreateView):
@@ -23,7 +25,8 @@ class SignUp(generic.CreateView):
 
 def storyline(request):
     """Storyline."""
-    return render(request, 'storyline.html', {})
+    share = Share.objects.all()
+    return render(request, 'storyline.html', {'share': share})
 
 
 def profile(request):
@@ -33,7 +36,9 @@ def profile(request):
 
 def share(request):
     """Shareself."""
-    return render(request, 'share.html', {})
+    share = Share.objects.all()
+    form = ShareForm()
+    return render(request, 'share.html', {'form': form, 'share': share})
 
 
 def signin(request):
@@ -41,16 +46,11 @@ def signin(request):
     return render(request, 'signin.html', {})
 
 
-# def post_share(request):
-#     """Share Form."""
-#     form = ShareForm(request.POST)
-#     if form.is_valid():
-#         share = Share(
-#             #user=user,
-#             story=form.cleaned_data['story'],
-#             post_date=form.cleaned_data['post_date'],
-#             media=form.cleaned_data['media'],
-#             share_date=form.cleaned_data['share_date'])
-#         share.share = request.share
-#         share.save()
-#     return HttpResponseRedirect('/')
+def post_share(request):
+    """Share Form."""
+    form = ShareForm(request.POST)
+    if form.is_valid():
+        share = form.save(commit = False)
+        share.user = request.user
+        share.save()
+    return HttpResponseRedirect('/storyline')
