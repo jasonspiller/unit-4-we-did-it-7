@@ -9,3 +9,4 @@ class ShareForm(forms.ModelForm):
 	class Meta:
 		model = Share
 		fields = ['story', 'share_date']
+

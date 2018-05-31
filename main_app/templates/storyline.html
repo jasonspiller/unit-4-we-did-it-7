@@ -3,7 +3,6 @@
 {% block title %}Storyline{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
 
   <h2>Storyline</h2>
   {% for share in share %}
@@ -13,4 +12,5 @@
   {% endfor %}
 
 {% endif %}
+
 {% endblock %}
