@@ -16,4 +16,5 @@ urlpatterns = [
     path('storyline/', views.storyline, name='storyline'),
     path('share/', views.share, name='share'),
     path('signin/', views.signin, name='signin'),
+    path('team/', views.team, name='team'),
 ]
