@@ -3,16 +3,15 @@
 {% block title %}The Team{% endblock %}
 
 {% block content %}
-	<h1>The Team</h1>
+<h2>The Team</h2>
+<hr>
 {% for user in users %}
-<div class="container">
-	<p>first name: {{ user.first_name }}</p>
-	<p>last name: {{ user.last_name }}</p>
-	<p>user name: {{ user.username }}</p>
-	<p>email: {{ user.email }}</p>
-	<p>date of join conception: {{ user.date_joined}}</p>
+  <p>Username: {{ user.username }}</p>
+	<p>First Name: {{ user.first_name }}</p>
+	<p>Last Name: {{ user.last_name }}</p>
+	<p>Email: {{ user.email }}</p>
+	<p>Sign Up Date: {{ user.date_joined}}</p>
 	<hr>
-</div>
 {% endfor %}
 
 {% endblock %}

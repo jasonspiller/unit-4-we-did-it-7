@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from .models import Share
 from django.views import generic
-from .forms import ShareForm 
+from .forms import ShareForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -44,18 +44,17 @@ def signin(request):
     return render(request, 'signin.html', {})
 
 
-
 def post_share(request):
-	"""Share Form."""
-	form = ShareForm(request.POST)
-	if form.is_valid():
-		share = form.save(commit = False)
-		share.user = request.user
-		share.save()
-	return HttpResponseRedirect('/storyline')
+    """Share Form."""
+    form = ShareForm(request.POST)
+    if form.is_valid():
+        share = form.save(commit=False)
+        share.user = request.user
+        share.save()
+    return HttpResponseRedirect('/storyline')
+
 
 def team(request):
     """Team Page."""
     users = User.objects.all()
     return render(request, 'team.html', {'users': users})
-

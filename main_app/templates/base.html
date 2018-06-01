@@ -37,7 +37,13 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'storyline' %}"><span class="nav-characters">&lt;/</span>Storyline<span class="nav-characters">&gt;</span></a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'team' %}"><span class="nav-characters">&lt;/</span>The Team<span class="nav-characters">&gt;</span></a>
+            </li>
             {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'share' %}"><span class="nav-characters">&lt;/</span>Share<span class="nav-characters">&gt;</span></a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'profile' %}"><span class="nav-characters">&lt;/</span>Profile<span class="nav-characters">&gt;</span></a>
               </li>
